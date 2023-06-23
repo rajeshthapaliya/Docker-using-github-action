@@ -27,7 +27,7 @@ jobs:
           tags: rajeshthapaliya/backend:{{ github.sha }}
 
       - name: Deploy to EC2 instance
-        uses: rajeshthapaliya/Docker-using-github-action@master
+        uses: rajeshthapaliya/Docker-using-github-action@main
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
