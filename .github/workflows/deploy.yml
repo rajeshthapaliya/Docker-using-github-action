@@ -24,16 +24,16 @@ jobs:
         with:
           context: .
           push: true
-          tags: tariq8?/webapp:${{ github.sha }}
+          tags: rajeshthapaliya/backend:backend
 
       - name: Deploy to EC2 instance
-        uses: appleboy/ssh-actiongmaster
+        uses: rajeshthapaliya/Docker-using-github-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            docker stop webapp || true
-            docker rm webapp || true
-            docker pull ${{ secrets.DOCKER_USERNAME }}/webapp:${{ github.sha }}
-            docker run -d --name webapp -p 80:80 ${{ secrets.DOCKER_USERNAME }}/webapp:${{ github.sha }}
+            docker stop backend || true
+            docker rm backend || true
+            docker pull ${{ secrets.DOCKER_USERNAME }}/backend:backend
+            docker run -d --name backend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/backend:backend
