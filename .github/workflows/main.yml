@@ -44,7 +44,7 @@ jobs:
                ssh -i key username@host "sudo docker run -d --name my-container -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/backend"
                
       - name: Deploy to EC2 instance
-        uses: rajeshthapaliya/Docker-using-github-action/frontend@main
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
