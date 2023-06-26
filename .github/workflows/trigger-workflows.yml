@@ -1,0 +1,24 @@
+name: Trigger Workflows
+
+on:
+  workflow_run:
+    workflows:
+      - 'Docker-using-github-action/backend/.github/workflows/backend-workflow.yml'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger backend-workflow
+        uses: actions/checkout@v2
+        with:
+          repository: rajeshthapaliya/Docker-using-github-action
+          ref: main
+          path: Docker-using-github-action/backend/.github/workflows/backend-workflow.yml
+
+      - name: Run Workflow 1
+        run: |
+          echo "Running Workflow 1"
+          # Add your steps for Workflow 1 here
+
