@@ -43,7 +43,7 @@ jobs:
                sudo docker stop backend || true
                sudo docker rm backend || true
                sudo docker pull rajeshthapaliya/backend:latest
-               sudo docker run -d --name backend -p 8080:8080 rajeshthapaliya/backend:latest
+               sudo docker run -d --name backend -p 8080:8080 rajeshthapaliya/backend
                
       - name: Deploy to EC2 instance
         uses: appleboy/ssh-action@master
@@ -55,4 +55,4 @@ jobs:
                sudo docker stop frontend || true
                sudo docker rm frontend || true
                sudo docker pull rajeshthapaliya/frontend:latest
-               sudo docker run -d --name frontend -p 80:80 rajeshthapaliya/frontend:latest 
+               sudo docker run -d --name frontend -p 80:80 rajeshthapaliya/frontend
