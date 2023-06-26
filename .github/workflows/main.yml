@@ -55,4 +55,4 @@ jobs:
                sudo docker stop frontend || true
                sudo docker rm frontend || true
                sudo docker pull ${{ secrets.DOCKER_USERNAME }}/frontend
-               sudo docker run -d --name backend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/backend       
+               sudo docker run -d --name frontend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/frontend      
