@@ -44,14 +44,7 @@ jobs:
                sudo docker rm backend || true
                sudo docker pull rajeshthapaliya/backend:latest
                sudo docker run -d --name backend -p 8080:8080 rajeshthapaliya/backend
-               
-      - name: Deploy to EC2 instance
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
-          script: |
+    
                sudo docker stop frontend || true
                sudo docker rm frontend || true
                sudo docker pull rajeshthapaliya/frontend:latest
