@@ -42,10 +42,10 @@ jobs:
           script: |
                sudo docker stop backend || true
                sudo docker rm backend || true
-               sudo docker pull rajeshthapaliya/backend:latest
-               sudo docker run -d --name backend -p 8080:8080 rajeshthapaliya/backend
+               sudo docker pull ${{ secrets.DOCKER_USERNAME }}/backend:latest
+               sudo docker run -d --name backend -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/backend
     
                sudo docker stop frontend || true
                sudo docker rm frontend || true
-               sudo docker pull rajeshthapaliya/frontend:latest
-               sudo docker run -d --name frontend -p 80:80 rajeshthapaliya/frontend
+               sudo docker pull ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+               sudo docker run -d --name frontend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/frontend
