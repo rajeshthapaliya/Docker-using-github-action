@@ -36,4 +36,4 @@ jobs:
             docker stop backend || true
             docker rm backend || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/backend
-            docker run -d --name backend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/backend:{{ github.sha }}
+            docker run -d --name backend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/backend
