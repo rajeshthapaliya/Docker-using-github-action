@@ -26,7 +26,7 @@ const ExpenseList = () => {
 
   const [data,setData]=useState([])
   const getExpenses=async()=>{
-    const response=await fetch('http://localhost:8080/expenses')
+    const response=await fetch('http://54.92.167.143:8080/expenses')
     const data=await response.json()
     console.log(data);
     setData(data.data)
