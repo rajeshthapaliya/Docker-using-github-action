@@ -40,6 +40,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
+               ssh -i key username@host "sudo docker stop backend"
+               ssh -i key username@host "sudo docker rm backend"
                ssh -i key username@host "sudo docker pull ${{ secrets.DOCKER_USERNAME }}/backend"
                ssh -i key username@host "sudo docker run -d --name my-container -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/backend"
                
@@ -50,5 +52,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
+               ssh -i key username@host "sudo docker stop backend"
+               ssh -i key username@host "sudo docker rm backend"
                ssh -i key username@host "sudo docker pull ${{ secrets.DOCKER_USERNAME }}/frontend"
                ssh -i key username@host "sudo docker run -d --name my-container -p 80:80 ${{ secrets.DOCKER_USERNAME }}/frontend"        
