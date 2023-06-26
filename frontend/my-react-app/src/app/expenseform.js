@@ -21,7 +21,7 @@ const ExpenseForm = () => {
       };
   
       try {
-        const response = await fetch('http://localhost:8080/expenses', {
+        const response = await fetch('http://54.92.167.143:8080/expenses', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
