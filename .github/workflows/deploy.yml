@@ -34,5 +34,5 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
                ssh -i key username@host "docker stop my-container && docker rm my-container"
-               ssh -i key username@host "docker pull rajeshthapaliya/backend"
-               ssh -i key username@host "docker run -d --name my-container -p 80:80 rajeshthapaliya/backend"
+               ssh -i key username@host "docker pull ${{ secrets.DOCKER_USERNAME }}/backend"
+               ssh -i key username@host "docker run -d --name my-container -p 80:80 ${{ secrets.DOCKER_USERNAME }}/backend"
