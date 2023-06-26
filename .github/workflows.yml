@@ -1,4 +1,0 @@
-on:
-  workflow_run:
-    workflows:
-      - 'backend/.github/workflows/backend-workflow.yml'
