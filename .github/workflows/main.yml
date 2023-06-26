@@ -42,8 +42,8 @@ jobs:
           script: |
                sudo docker stop backend || true
                sudo docker rm backend || true
-               sudo docker pull ${{ secrets.DOCKER_USERNAME }}/backend:{{ github.sha }}
-               sudo docker run -d --name backend -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/backend:{{ github.sha }} 
+               sudo docker pull rajeshthapaliya/backend
+               sudo docker run -d --name backend -p 8080:8080 rajeshthapaliya/backend
                
       - name: Deploy to EC2 instance
         uses: appleboy/ssh-action@master
@@ -54,5 +54,5 @@ jobs:
           script: |
                sudo docker stop frontend || true
                sudo docker rm frontend || true
-               sudo docker pull ${{ secrets.DOCKER_USERNAME }}/frontend:{{ github.sha }}
-               sudo docker run -d --name frontend -p 80:80 ${{ secrets.DOCKER_USERNAME }}/frontend:{{ github.sha }}     
+               sudo docker pull rajeshthapaliya/frontend
+               sudo docker run -d --name frontend -p 80:80 rajeshthapaliya/frontend    
